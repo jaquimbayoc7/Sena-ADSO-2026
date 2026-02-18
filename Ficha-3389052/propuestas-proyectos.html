@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuestas de Proyectos - Ficha 3389052 SENA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e7145 0%, #2e8b57 100%);
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 113, 69, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .intro {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #1e7145;
+        }
+
+        .intro h2 {
+            color: #1e7145;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .intro p {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(30, 113, 69, 0.2);
+        }
+
+        .project-header {
+            padding: 30px 25px;
+            background: linear-gradient(135deg, #1e7145 0%, #2e8b57 100%);
+            color: white;
+        }
+
+        .project-number {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .project-header h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-description {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .requirements-section {
+            background: #f0f7f4;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 0;
+            margin-top: auto;
+        }
+
+        .requirements-title {
+            color: #1e7145;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .requirements-list {
+            list-style: none;
+        }
+
+        .requirements-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .requirements-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e7145;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .expanded-context {
+            background: #ffffff;
+            border-left: 4px solid #2e8b57;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .expanded-context h4 {
+            color: #1e7145;
+            margin: 15px 0 10px 0;
+            font-size: 1.05em;
+            font-weight: 700;
+        }
+
+        .expanded-context p, 
+        .expanded-context ul {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .expanded-context ul {
+            margin-left: 20px;
+        }
+
+        .expanded-context li {
+            margin-bottom: 8px;
+        }
+
+        .user-actor {
+            display: inline-block;
+            background: #e8f5e9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 5px 5px 5px 0;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #1e7145;
+            border: 1px solid #2e8b57;
+        }
+
+        .context-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #2e8b57;
+        }
+
+        .context-section h2 {
+            color: #1e7145;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .context-item {
+            padding: 20px;
+            background: #f0f7f4;
+            border-radius: 8px;
+            border-left: 4px solid #1e7145;
+        }
+
+        .context-item h4 {
+            color: #1e7145;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .context-item p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .sena-reference {
+            color: #1e7145;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Propuestas de Proyectos</h1>
+            <p class="subtitle">Ficha 3389052 - Tecnólogo ADSO</p>
+            <span class="badge">Caracterización de Procesos & Levantamiento de Requisitos</span>
+        </header>
+
+        <div class="intro">
+            <h2>📋 Contexto del Aprendizaje</h2>
+            <p>
+                Las siguientes propuestas fueron diseñadas para que como equipo de desarrollo puedan <strong>caracterizar los procesos, identificar actores, flujos de información y levantar requisitos funcionales y no funcionales</strong> para la creación de <strong>soluciones software web y/o móviles</strong> que generen impacto social y tecnológico. Cada idea presenta un área de oportunidad diferente donde ustedes, como desarrolladores, pueden crear soluciones innovadoras.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Proyecto 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">1</div>
+                    <h3>Inclusión Predictiva IA</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        <strong>Sistema inteligente de predicción de barreras de accesibilidad</strong> basado en certificados de discapacidad
+                    </p>
+                    <div class="project-description">
+                        <p>Desarrollar una plataforma web que integre Machine Learning para <strong>leer y analizar datos del certificado de discapacidad física</strong>, extrayendo información relevante (tipo de discapacidad, grado, restricciones) y <strong>predecir la percepción de barreras de accesibilidad</strong> en diferentes contextos (transporte, educación, empleo, espacios públicos). La solución debe proporcionar recomendaciones personalizadas de adaptaciones y apoyos.</p>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>👥 Usuarios Finales (Actores Principales)</h4>
+                        <div>
+                            <span class="user-actor">👤 Persona con Discapacidad Física</span>
+                            <span class="user-actor">🏥 Profesional de Salud</span>
+                            <span class="user-actor">🏢 Gestor Institucional</span>
+                            <span class="user-actor">♿ Especialista en Accesibilidad</span>
+                        </div>
+                        <p style="margin-top: 15px;"><strong>Necesidad Principal:</strong> Conocer qué barreras enfrentará en contextos específicos para tomar decisiones informadas sobre educación, empleo y participación social.</p>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>🎯 Casos de Uso Esperados (desde el usuario final)</h4>
+                        <ul>
+                            <li><strong>Caso 1:</strong> Una persona con paraplejia sube su certificado de discapacidad (PDF) y el sistema predice si podrá acceder a una universidad específica, mostrando las barreras identificadas (escaleras, baños adaptados, transporte) y recomendaciones.</li>
+                            <li><strong>Caso 2:</strong> Un gestor de RH carga certificados de candidatos y recibe un reporte sobre qué adaptaciones laborales serían necesarias en su empresa para cada persona.</li>
+                            <li><strong>Caso 3:</strong> Un profesional de salud consulta el análisis predicho para una persona con discapacidad múltiple y proporciona recomendaciones de apoyo personalizadas.</li>
+                            <li><strong>Caso 4:</strong> Una institución educativa evalúa su nivel de accesibilidad predicho para diferentes tipos de discapacidad y planifica mejoras.</li>
+                        </ul>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>⚙️ Funcionalidades Clave Esperadas</h4>
+                        <ul>
+                            <li><strong>Carga de Certificado:</strong> Interfaz para subir PDF/imagen del certificado de discapacidad</li>
+                            <li><strong>Extracción Automática:</strong> OCR + NLP para extraer tipo, grado, diagnóstico, restricciones de movilidad</li>
+                            <li><strong>Selector de Contexto:</strong> Elegir contexto a evaluar (educación, trabajo, transporte, espacios públicos, salud)</li>
+                            <li><strong>Predicción de Barreras:</strong> Modelo ML que predice barreras específicas según discapacidad y contexto</li>
+                            <li><strong>Reporte Personalizado:</strong> Documento con barreras identificadas, riesgo (alto/medio/bajo), y recomendaciones de adaptación</li>
+                            <li><strong>Visualización Gráfica:</strong> Mapas o diagramas mostrando las barreras en el diseño de espacios</li>
+                            <li><strong>Dashboard de Instituciones:</strong> Vista agregada de accesibilidad por tipo de discapacidad</li>
+                            <li><strong>Historial y Seguimiento:</strong> Registrar el progreso en la reducción de barreras</li>
+                        </ul>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>🔄 Flujos Principales de Interacción</h4>
+                        <ul>
+                            <li><strong>Flujo 1 - Persona con Discapacidad:</strong> Inicia sesión → Carga certificado → Selecciona contexto (p.ej., universidad X) → Recibe reporte con barreras predichas → Contacta institución con recomendaciones</li>
+                            <li><strong>Flujo 2 - Institución:</strong> Inicia sesión → Crea perfil de accesibilidad → Sube certificados anónimos → Obtiene análisis agregado → Planifica adaptaciones → Actualiza nivel de accesibilidad</li>
+                            <li><strong>Flujo 3 - Análisis Comparativo:</strong> Usuario selecciona múltiples instituciones/contextos → Compara predicciones de accesibilidad → Toma decisión informada</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirements-section">
+                        <div class="requirements-title">Áreas de Investigación</div>
+                        <ul class="requirements-list">
+                            <li>Extracción de datos con OCR/NLP de certificados</li>
+                            <li>Modelos ML para predicción de barreras de accesibilidad</li>
+                            <li>Análisis de datos de personas con discapacidad física</li>
+                            <li>Recomendadores de adaptaciones y apoyos</li>
+                            <li>Validación de percepciones reales vs predichas</li>
+                            <li>Regulación sobre manejo de datos sensibles de salud (GDPR, LPD)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">2</div>
+                    <h3>IA Educativa</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        <strong>Plataforma de Tutorías Inteligentes con LLM/SLM</strong> enfocada en enseñanza
+                    </p>
+                    <div class="project-description">
+                        <p>Crear una plataforma educativa que integre un Large Language Model (LLM) o Small Language Model (SLM) para proporcionar tutorías personalizadas orientadas a lenguajes de programación como <strong>Python</strong>, adaptando la pedagogía a cada estudiante.</p>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>👥 Usuarios Finales (Actores Principales)</h4>
+                        <div>
+                            <span class="user-actor">👨‍🎓 Estudiante de Programación</span>
+                            <span class="user-actor">👨‍🏫 Docente</span>
+                            <span class="user-actor">📊 Gestor Académico</span>
+                            <span class="user-actor">🎯 Tutor/Mentor</span>
+                        </div>
+                        <p style="margin-top: 15px;"><strong>Necesidad Principal:</strong> Acceso 24/7 a tutorías personalizadas que se adapten al ritmo, estilo de aprendizaje y nivel de cada estudiante en programación Python.</p>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>🎯 Casos de Uso Esperados (desde el usuario final)</h4>
+                        <ul>
+                            <li><strong>Caso 1:</strong> Un estudiante principiante abre la plataforma, responde un quiz de nivel y comienza a aprender sobre variables y tipos de datos en Python con explicaciones adaptadas a su nivel.</li>
+                            <li><strong>Caso 2:</strong> Es las 2 AM y el estudiante tiene una duda sobre listas en Python. El tutor IA responde al instante, explica, da ejemplos y propone ejercicios prácticos.</li>
+                            <li><strong>Caso 3:</strong> Un estudiante avanzado pide que le explique decoradores en Python. La plataforma detecta su nivel y le ofrece explicaciones más técnicas con casos complejos.</li>
+                            <li><strong>Caso 4:</strong> El docente consulta un reporte de progreso agregado de sus estudiantes, identifica conceptos débiles y ajusta su enseñanza.</li>
+                            <li><strong>Caso 5:</strong> El estudiante resuelve un ejercicio incorrectamente. El tutor IA le da pistas para que llegue a la respuesta correcta sin simplemente darle la solución.</li>
+                        </ul>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>⚙️ Funcionalidades Clave Esperadas</h4>
+                        <ul>
+                            <li><strong>Perfil de Estudiante:</strong> Crear perfil con nivel, estilo de aprendizaje, velocidad preferida, idioma</li>
+                            <li><strong>Evaluación Diagnóstica:</strong> Quiz inicial para determinar nivel actual en programación</li>
+                            <li><strong>Tutor Conversacional IA:</strong> Chat con LLM/SLM que responde preguntas sobre Python de manera personalizada</li>
+                            <li><strong>Rutas de Aprendizaje Adaptativas:</strong> Caminos de aprendizaje que se ajustan según desempeño</li>
+                            <li><strong>Banco de Ejercicios Dinámicos:</strong> Problemas generados automáticamente en diferentes niveles de dificultad</li>
+                            <li><strong>Explicaciones Multinivel:</strong> El IA puede explicar lo mismo en nivel básico, intermedio o avanzado según solicite</li>
+                            <li><strong>Generador de Ejemplos:</strong> Crear ejemplos específicos basados en contextos del estudiante</li>
+                            <li><strong>Análisis de Errores:</strong> Identificar patrones en errores del estudiante y proporcionar feedback personalizado</li>
+                            <li><strong>Dashboard del Docente:</strong> Ver progreso de estudiantes, áreas de dificultad, engagement</li>
+                            <li><strong>Gamificación:</strong> Puntos, badges, leaderboards para mantener motivación</li>
+                            <li><strong>Recursos Complementarios:</strong> Videos, artículos, documentación enlazada dinámicamente</li>
+                        </ul>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>🔄 Flujos Principales de Interacción</h4>
+                        <ul>
+                            <li><strong>Flujo 1 - Aprendizaje Interactivo:</strong> Estudiante inicia sesión → Selecciona tema (p.ej., "funciones en Python") → Recibe explicación adaptada → Practica con ejercicios → Obtiene feedback del IA → Avanza o repite</li>
+                            <li><strong>Flujo 2 - Consulta Rápida:</strong> Estudiante tiene duda específica → Escribe pregunta en chat → IA responde con explicación, ejemplo y referencias → Plantea preguntas de seguimiento</li>
+                            <li><strong>Flujo 3 - Revisión de Código:</strong> Estudiante sube fragmento de código → IA analiza y explica qué hace, identifica errores, sugiere mejoras</li>
+                            <li><strong>Flujo 4 - Generación de Desafíos:</strong> Sistema genera automáticamente nuevo ejercicio de acuerdo al nivel y tema → Estudiante resuelve → IA autorrevisa y proporciona feedback</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirements-section">
+                        <div class="requirements-title">Áreas de Investigación</div>
+                        <ul class="requirements-list">
+                            <li>Modelos de lenguaje (GPT, Llama, etc.)</li>
+                            <li>Integración de APIs de IA</li>
+                            <li>Pedagogía y ciencias del aprendizaje</li>
+                            <li>Prompt engineering y fine-tuning</li>
+                            <li>Analytics de aprendizaje</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">3</div>
+                    <h3>Fomento de I+D</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        <strong>Plataforma para Investigación e Identificación de Habilidades</strong>
+                    </p>
+                    <div class="project-description">
+                        <p>Desarrollar una solución que permita a estudiantes y profesionales identificar, documentar y desarrollar sus habilidades para realizar investigación científica y técnica, facilitando la colaboración en proyectos de innovación.</p>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>👥 Usuarios Finales (Actores Principales)</h4>
+                        <div>
+                            <span class="user-actor">🎓 Estudiante Investigador</span>
+                            <span class="user-actor">👨‍🔬 Profesional/Científico</span>
+                            <span class="user-actor">🏛️ Director de Investigación</span>
+                            <span class="user-actor">🤝 Colaborador Externo</span>
+                        </div>
+                        <p style="margin-top: 15px;"><strong>Necesidad Principal:</strong> Reconocer habilidades investigativas, conectar con otros investigadores, acceder a oportunidades de I+D y documentar contribuciones científicas en un portafolio profesional.</p>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>🎯 Casos de Uso Esperados (desde el usuario final)</h4>
+                        <ul>
+                            <li><strong>Caso 1:</strong> Un estudiante SENA realiza un diagrama de habilidades respondiendo cuestionarios sobre investigación, análisis de datos, comunicación científica. El sistema le asigna un perfil "Data-Driven": nivel intermedio.</li>
+                            <li><strong>Caso 2:</strong> Una profesional con 5 años en QA busca transicionar a investigación de metodologías. Consulta qué habilidades le faltan y recibe un plan de desarrollo personalizado.</li>
+                            <li><strong>Caso 3:</strong> Un director de I+D publica un proyecto: "Evaluación de frameworks Python para ML". El sistema sugiere personas con habilidades específicas (Python, ML, análisis estadístico) que coinciden.</li>
+                            <li><strong>Caso 4:</strong> Dos estudiantes se cruzan en la plataforma y descubren complementariedad en sus habilidades (uno en backend, otro en visualización de datos). Forman equipo para participar en una convocatoria de innovación.</li>
+                            <li><strong>Caso 5:</strong> Una institución consulta si tiene talento investigativo interno en ciencias de datos. Reportes agregados muestran skills disponibles por área.</li>
+                        </ul>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>⚙️ Funcionalidades Clave Esperadas</h4>
+                        <ul>
+                            <li><strong>Evaluación de Habilidades Investigativas:</strong> Cuestionarios que miden capacidades en: pensamiento crítico, análisis estadístico, diseño experimental, comunicación científica, etc.</li>
+                            <li><strong>Perfil de Investigador:</strong> Visualización gráfica (radar/heatmap) de habilidades fuertes y áreas para desarrollar</li>
+                            <li><strong>Recomendaciones de Desarrollo:</strong> Rutas de aprendizaje sugeridas basadas en habilidades actuales y aspiraciones</li>
+                            <li><strong>Banco de Oportunidades de I+D:</strong> Convocatorias, proyectos, becas actualizadas dinámicamente</li>
+                            <li><strong>Sistema de Matching:</strong> Emparejar investigadores con proyectos según compatibilidad de habilidades</li>
+                            <li><strong>Portfolio de Investigación:</strong> Documentar proyectos, publicaciones, certificaciones, contribuciones</li>
+                            <li><strong>Red de Colaboración:</strong> Espacio para conectar investigadores, ver perfiles, proponer colaboraciones</li>
+                            <li><strong>Espacios de Proyectos:</strong> Crear equipos, colaborar en documentos, compartir datos y resultados de investigación</li>
+                            <li><strong>Validación de Habilidades:</strong> Otros investigadores pueden validar competencias (endorsements científicos)</li>
+                            <li><strong>Badges y Certificaciones:</strong> Reconocimiento por contribuciones, habilidades, publicaciones</li>
+                            <li><strong>Analytics Institucional:</strong> Reportes sobre capacidad investigativa de equipos, universidades u organizaciones</li>
+                            <li><strong>Integración con Repositorios Académicos:</strong> Conectar con Google Scholar, ResearchGate, GitHub para sincronizar logros</li>
+                        </ul>
+                    </div>
+
+                    <div class="expanded-context">
+                        <h4>🔄 Flujos Principales de Interacción</h4>
+                        <ul>
+                            <li><strong>Flujo 1 - Identificación de Talento:</strong> Usuario crea perfil → Completa evaluación de habilidades → Sistema genera mapa cognitivo → Recomendaciones de desarrollo → Explora oportunidades alineadas</li>
+                            <li><strong>Flujo 2 - Conformación de Equipos:</strong> Director publica proyecto de I+D → Sistema busca investigadores con skills requeridas → Director revisa candidatos → Invita a que se unan → Se forma equipo colaborativo</li>
+                            <li><strong>Flujo 3 - Validación Comunitaria:</strong> Investigador A ve perfil de Investigador B → Reconoce trabajo previo en area común → Valida (endorsa) sus habilidades → Construye red de confianza</li>
+                            <li><strong>Flujo 4 - Oportunidades Personalizadas:</strong> Sistema monitorea habilidades del usuario → Recomienda convocatorias, becas, proyectos que coincidan → Usuario aplica con perfil potenciado</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirements-section">
+                        <div class="requirements-title">Áreas de Investigación</div>
+                        <ul class="requirements-list">
+                            <li>Modelos de competencias investigativas</li>
+                            <li>Evaluación y certificación de habilidades</li>
+                            <li>Gestión de proyectos de I+D</li>
+                            <li>Redes de colaboración académica</li>
+                            <li>Gamificación del aprendizaje</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="context-section">
+            <h2>🎯 Actividad de Aprendizaje</h2>
+            <div class="context-grid">
+                <div class="context-item">
+                    <h4>1️⃣ Caracterización de Procesos</h4>
+                    <p>
+                        Mapeen los flujos actuales, identifiquen actores involucrados, documenten problemas y oportunidades. Creen diagramas BPM (Business Process Model).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Servicio Nacional de Aprendizaje - SENA</strong></p>
+            <p>Ficha 3389052 • Tecnólogo en Análisis y Desarrollo de Sistemas de Información (ADSO)</p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">
+                Documento de apoyo para el análisis y diseño de soluciones software con impacto social
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
