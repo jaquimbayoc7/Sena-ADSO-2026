@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuestas de Proyectos - Ficha 3389051 SENA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e7145 0%, #2e8b57 100%);
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 113, 69, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .intro {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #1e7145;
+        }
+
+        .intro h2 {
+            color: #1e7145;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .intro p {
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(30, 113, 69, 0.2);
+        }
+
+        .project-header {
+            padding: 30px 25px;
+            background: linear-gradient(135deg, #1e7145 0%, #2e8b57 100%);
+            color: white;
+        }
+
+        .project-number {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .project-header h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-description {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .requirements-section {
+            background: #f0f7f4;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 0;
+            margin-top: auto;
+        }
+
+        .requirements-title {
+            color: #1e7145;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .requirements-list {
+            list-style: none;
+        }
+
+        .requirements-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .requirements-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e7145;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .context-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #2e8b57;
+        }
+
+        .context-section h2 {
+            color: #1e7145;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .context-item {
+            padding: 20px;
+            background: #f0f7f4;
+            border-radius: 8px;
+            border-left: 4px solid #1e7145;
+        }
+
+        .context-item h4 {
+            color: #1e7145;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .context-item p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .sena-reference {
+            color: #1e7145;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Propuestas de Proyectos</h1>
+            <p class="subtitle">Ficha 3389051 - Tecnólogo ADSO</p>
+            <span class="badge">Caracterización de Procesos & Levantamiento de Requisitos</span>
+        </header>
+
+        <div class="intro">
+            <h2>📋 Contexto del Aprendizaje</h2>
+            <p>
+                Las siguientes propuestas fueron diseñadas para que como equipo de desarrollo puedan <strong>caracterizar los procesos, identificar actores, flujos de información y levantar requisitos funcionales y no funcionales</strong> para la creación de <strong>soluciones software web y/o móviles</strong> que generen impacto social y tecnológico. Cada idea presenta un área de oportunidad diferente donde ustedes, como desarrolladores, pueden crear soluciones innovadoras.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Proyecto 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">1</div>
+                    <h3>Inclusión Digital</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        <strong>Plataforma web/móvil para personas con discapacidad física</strong> (con certificado de discapacidad)
+                    </p>
+                    <div class="project-description">
+                        <p>Desarrollar una solución que acerque servicios, oportunidades de educación, empleo y participación ciudadana a personas con discapacidad física, considerando accesibilidad WCAG y características de navegación adaptadas.</p>
+                    </div>
+                    <div class="requirements-section">
+                        <div class="requirements-title">Áreas de Investigación</div>
+                        <ul class="requirements-list">
+                            <li>Estándares de accesibilidad web (WCAG 2.1)</li>
+                            <li>Tecnologías asistivas y APIs accesibles</li>
+                            <li>Necesidades específicas del usuario</li>
+                            <li>Regulación colombiana en inclusión (Ley 1618)</li>
+                            <li>Experiencia de usuario adaptada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">2</div>
+                    <h3>IA Educativa</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        <strong>Plataforma de Tutorías Inteligentes con LLM/SLM</strong> enfocada en enseñanza
+                    </p>
+                    <div class="project-description">
+                        <p>Crear una plataforma educativa que integre un Large Language Model (LLM) o Small Language Model (SLM) para proporcionar tutorías personalizadas orientadas a lenguajes de programación como <strong>Python</strong>, adaptando la pedagogía a cada estudiante.</p>
+                    </div>
+                    <div class="requirements-section">
+                        <div class="requirements-title">Áreas de Investigación</div>
+                        <ul class="requirements-list">
+                            <li>Modelos de lenguaje (GPT, Llama, etc.)</li>
+                            <li>Integración de APIs de IA</li>
+                            <li>Pedagogía y ciencias del aprendizaje</li>
+                            <li>Prompt engineering y fine-tuning</li>
+                            <li>Analytics de aprendizaje</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">3</div>
+                    <h3>Fomento de I+D</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        <strong>Plataforma para Investigación e Identificación de Habilidades</strong>
+                    </p>
+                    <div class="project-description">
+                        <p>Desarrollar una solución que permita a estudiantes y profesionales identificar, documentar y desarrollar sus habilidades para realizar investigación científica y técnica, facilitando la colaboración en proyectos de innovación.</p>
+                    </div>
+                    <div class="requirements-section">
+                        <div class="requirements-title">Áreas de Investigación</div>
+                        <ul class="requirements-list">
+                            <li>Modelos de competencias investigativas</li>
+                            <li>Evaluación y certificación de habilidades</li>
+                            <li>Gestión de proyectos de I+D</li>
+                            <li>Redes de colaboración académica</li>
+                            <li>Gamificación del aprendizaje</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="context-section">
+            <h2>🎯 Actividades de Aprendizaje</h2>
+            <div class="context-grid">
+                <div class="context-item">
+                    <h4>1️⃣ Caracterización de Procesos</h4>
+                    <p>
+                        Mapeen los flujos actuales, identifiquen actores involucrados, documentar problemas y oportunidades. Creen diagramas de flujo y matriz RACI.
+                    </p>
+                </div>
+                <div class="context-item">
+                    <h4>2️⃣ Levantamiento de Requisitos</h4>
+                    <p>
+                        Realicen entrevistas, encuestas y sesiones de descubrimiento. Documenten requisitos funcionales, no funcionales y restricciones técnicas.
+                    </p>
+                </div>
+                <div class="context-item">
+                    <h4>3️⃣ Diseño de Solución</h4>
+                    <p>
+                        Propongan arquitecturas, tecnologías, interfaces y estrategias de implementación basadas en los requisitos identificados.
+                    </p>
+                </div>
+                <div class="context-item">
+                    <h4>4️⃣ Prueba de Concepto</h4>
+                    <p>
+                        Desarrollen un prototipo funcional que valide los requisitos críticos y garantice factibilidad técnica.
+                    </p>
+                </div>
+                <div class="context-item">
+                    <h4>5️⃣ Presentación y Defensa</h4>
+                    <p>
+                        Presenten los hallazgos, decisiones de diseño y demuestren el valor de la solución con datos e impacto potencial.
+                    </p>
+                </div>
+                <div class="context-item">
+                    <h4>6️⃣ Plan de Implementación</h4>
+                    <p>
+                        Defina fases, timeline, recursos, riesgos y estrategia de escalabilidad de la solución.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Servicio Nacional de Aprendizaje - SENA</strong></p>
+            <p>Ficha 3389051 • Tecnólogo en Análisis y Desarrollo de Sistemas de Información (ADSO)</p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">
+                Documento de apoyo para el análisis y diseño de soluciones software con impacto social
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
